@@ -1,0 +1,43 @@
+# Increase the history limit
+set 	-g history-limit 10000
+
+# Change prefix from Ctrl+b to Ctrl+t
+set 	-g prefix C-t
+bind 	C-t send-prefix
+unbind 	C-b
+
+# Prefix + Tab cycles through panes
+# unbind 	Tab
+# bind 	Tab select-pane -t :.+
+
+# Window cycling
+unbind	M-Up
+unbind	M-Down
+unbind	M-Left
+unbind	M-Right
+bind	-n M-Up last-window
+bind	-n M-Down last-window
+bind 	-n M-Left  previous-window
+bind 	-n M-Right next-window
+
+
+# Window cycling
+unbind	M-i
+unbind	M-k
+unbind	M-j
+unbind	M-l
+bind	-n M-i resize-pane -U
+bind	-n M-k resize-pane -D
+bind 	-n M-j resize-pane -L
+bind 	-n M-l resize-pane -R
+
+
+# Navigate using Vim Shortcuts
+setw 	-g mode-keys vi
+
+# Display the custom tmux cheatsheet
+unbind	C-h
+bind-key -n  C-h run "cat ~/tmux/tmux_cheatsheet.txt"
+
+# Reload tmux config
+bind 	r source-file ~/.tmux.conf
