@@ -1,0 +1,13 @@
+[user]
+  name = Ashwin Sekhar T K
+  email = ashwinyes@gmail.com
+[color]
+	ui = auto
+[commit]
+
+[gui]
+
+[pack]
+	windowMemory = 100m
+	SizeLimit = 100m
+	threads = 4
