@@ -51,6 +51,7 @@ make install-host
 
 cd $LINUX_BUILD_DIR
 make -C $LINUX_SOURCE_DIR ARCH=arm64 INSTALL_HDR_PATH=$LINUX_PREFIX headers_install
+make -C $LINUX_SOURCE_DIR ARCH=arm64 INSTALL_HDR_PATH=$LINUX_PREFIX/aarch64-linux-gnu headers_install
 
 cd $GLIBC_BUILD_DIR
 $GLIBC_SOURCE_DIR/configure -v --prefix=$GLIBC_PREFIX --build=x86_64-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu  --disable-multilib  --with-headers=$LINUX_PREFIX/include  libc_cv_forced_unwind=yes libc_cv_c_cleanup=yes
@@ -70,5 +71,10 @@ make install-target-libgcc
 
 cd $GLIBC_BUILD_DIR
 make 
+make sysdeps
+make install
+
+cd $GCC_BUILD_DIR
+make
 make install
 
