@@ -85,10 +85,17 @@ set expandtab
 match ErrorMsg /\%>80v.\+/
 " autocmd BufWinEnter * call matchadd('ErrorMsg', '\%>'.&l:textwidth.'v.\+', -1)
 colorscheme slate
-set listchars=tab:>-
+" set listchars=tab:>-
 
 set bg=light
 colorscheme desert
+
+highlight Tab ctermbg=black guibg=#000000
+highlight ExtraWhitespace ctermbg=red guibg=red
+match Tab /\t/
+2match ExtraWhitespace /\s\+$/
+" matchadd("Tab", "/\t/")
+" matchadd("ExtraWhitespace", "/\s\+$/")
 
 
 
