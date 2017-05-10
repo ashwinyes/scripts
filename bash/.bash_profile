@@ -24,3 +24,7 @@ alias ls='ls --color'
 alias cls='clear'
 #alias showcmd='grep -Rif - /PATH_TO/commands.txt <<<'
 #alias addcmd='echo >> /PATH_TO/commands.txt'
+
+
+export PROMPT_COMMAND='history -a'
+
