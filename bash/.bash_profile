@@ -25,6 +25,8 @@ alias cls='clear'
 #alias showcmd='grep -Rif - /PATH_TO/commands.txt <<<'
 #alias addcmd='echo >> /PATH_TO/commands.txt'
 
+export HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+export PROMPT_COMMAND="history -n; history -w; history -c; history -r;"
 
-export PROMPT_COMMAND='history -a'
 
