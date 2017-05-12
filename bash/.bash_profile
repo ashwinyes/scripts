@@ -27,6 +27,6 @@ alias cls='clear'
 
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
-export PROMPT_COMMAND="history -n; history -w; history -c; history -r;"
+alias historysync="history -n; history -w; history -c; history -r;"
 
 
