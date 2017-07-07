@@ -1,5 +1,7 @@
-make TARGET=ARMV7 NO_LAPACK=1 USE_THREAD=0 HOSTCC=gcc AR=ar CC="clang -target arm-eabi-v7a -marm -mfpu=vfp -mfloat-ab
-i=softfp -I/home/ashwin/workspace/android/sdk/ndk-bundle/platforms/android-23/arch-arm/usr/include --sysroot /home/ashw
-in/workspace/android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/arm-linux-androideabi --
-gcc-toolchain=/home/ashwin/workspace/android/sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64"
- ONLY_CBLAS=1 -j4                                                                                                      
+export AR=ar
+export NDK_ROOT=/ndk
+
+clang -target arm-linux-androideabi -marm -mfpu=vfp -mfloat-abi=softfp \
+--sysroot $(NDK_ROOT)/platforms/android-23/arch-arm \
+-L$(NDK_ROOT)/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x \
+$1
