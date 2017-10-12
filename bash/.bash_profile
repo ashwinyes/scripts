@@ -29,4 +29,39 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 alias historysync="history -n; history -w; history -c; history -r;"
 
+########################################################
+# Safe rm
+########################################################
+function rm()
+{
+        local DATETIME=`date +%Y%m%d_%H%M%S_%N`
+        local PATHNAME
+        local FULLPATH
 
+#       local MATCHED=0
+#       if [[ $@ == *"-"*"r"* ]]; then
+#               if [[ $@ == *"-r"* ]]; then
+#                       MATCHED=1
+#               else
+#                       if [[ $@ != *"-"*" "*"r"* ]]; then
+#                               MATCHED=1
+#                       fi
+#               fi
+#       fi
+
+        for PATHNAME in $@; do
+                if [[ $PATHNAME == "-"* ]]; then
+                        echo Skipping option $PATHNAME
+                else
+                        FULLPATH=`readlink -f $PATHNAME`
+                        echo Checking $PATHNAME
+                        if [[ $FULLPATH == "/home/ashwin/"*"/"* ]]; then
+                                mkdir -p /home/ashwin/.Trash/$DATETIME
+                                echo Moving $PATHNAME to /home/ashwin/.Trash/$DATETIME
+                                mv $FULLPATH /home/ashwin/.Trash/$DATETIME
+                        else
+                                echo Warning: Not removing $FULLPATH as its unsafe
+                        fi
+                fi
+        done
+}
