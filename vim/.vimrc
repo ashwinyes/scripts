@@ -87,15 +87,22 @@ match ErrorMsg /\%>80v.\+/
 colorscheme slate
 " set listchars=tab:>-
 
-set bg=light
-colorscheme desert
+" set bg=light
+" colorscheme desert
 
-highlight Tab ctermbg=black guibg=#000000
-highlight ExtraWhitespace ctermbg=red guibg=red
-match Tab /\t/
-2match ExtraWhitespace /\s\+$/
+" highlight Tab ctermbg=black guibg=#000000
+" highlight ExtraWhitespace ctermbg=red guibg=red
+" match Tab /\t/
+" 2match ExtraWhitespace /\s\+$/
 " matchadd("Tab", "/\t/")
 " matchadd("ExtraWhitespace", "/\s\+$/")
 
+colorscheme desert
+set t_Co=256
+syntax on
+highlight ExtraWhitespace ctermbg=black
+match ExtraWhitespace /\s\+$\| \+\ze\t\|^ \+/
+set colorcolumn=80,100
+hi ColorColumn ctermbg=52
 
 
