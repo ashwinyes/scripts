@@ -10,9 +10,19 @@ export LS_COLORS
 ########################################################
 # SETTING THE PROMPT
 ########################################################
+export TERM=xterm-256color
+G="tput setaf 255" # GREY
+C="tput setaf 14" # CYAN
+GR="tput setaf 10" # GREEN
+W="tput setaf 15" # WHITE
+export PS1="\[$($W)($($G)$(whoami)@$(hostname):$($C)$(date +%Y/%m/%d\ %T)$($W)):$($GR)\w\n$($W)$ \]"
+unset G
+unset C
+unset GR
+unset W
 #export PS1="\e[0;31m[\u@\h \W]\$ \e[m "
 #export PS1="\[$(tput sgr0)(\e[0;31m\d \t\e[m)(\e[0;31m\u@\h\e[m):\e[0;32m\w\e[m\n$ \[$(tput setaf 7)\]"
-export PS1="\[$(tput sgr0)(\e[0;31m\$(hostname -I|sed -e 's/^ *//' -e 's/ *$//')\e[m:\e[0;36m\$(date)\e[m):\e[0;32m\w\e[m\n$ \[$(tput setaf 8)\]"
+#export PS1="\[$(tput sgr0)(\e[0;31m\$(hostname -I|sed -e 's/^ *//' -e 's/ *$//')\e[m:\e[0;36m\$(date)\e[m):\e[0;32m\w\e[m\n$ \[$(tput setaf 8)\]"
 #export PS1="\[$(tput sgr0)(\e[0;31m\d \t\e[m)(\e[0;31m\u@\h\e[m)(\e[0;31m\$(hostname -I|sed -e 's/^ *//' -e 's/ *$//')\e[m):\e[0;32m\w\e[m\n$ \[$(tput setaf 8)\]"
 #export PS1=$`pwd`$
 
